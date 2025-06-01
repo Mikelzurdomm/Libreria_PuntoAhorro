@@ -8,73 +8,82 @@
     * {
       box-sizing: border-box;
     }
-    body {
+    html, body {
       margin: 0;
+      height: 100%;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #f8fafc, #e2e8f0);
-      display: flex;
-      flex-direction: column;
-      height: 100vh;
     }
     header {
       background-color: #1e3a8a;
       color: white;
-      padding: 2rem;
+      padding: 1.5rem;
       text-align: center;
     }
     header h1 {
       margin: 0;
-      font-size: 2.5rem;
+      font-size: 2rem;
     }
-    header p {
-      margin: 0.5rem 0 0;
-      font-size: 1.2rem;
+    .search-container {
+      margin-top: 1rem;
     }
-    main {
-      flex: 1;
+    .search-box {
+      padding: 0.6rem 1rem;
+      width: 80%;
+      max-width: 600px;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+    }
+    .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 2rem;
-      padding: 2rem;
-      align-content: center;
-      justify-items: center;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-auto-rows: 1fr;
+      gap: 0;
+      height: calc(100% - 140px); /* ajustar para header */
     }
-    .card {
-      width: 100%;
-      max-width: 300px;
-      height: 140px;
-      background: white;
-      padding: 1.5rem;
-      border-radius: 1rem;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
-      text-align: center;
-      text-decoration: none;
-      color: #1e3a8a;
-      font-weight: bold;
+    .tile {
+      background-color: #c7d2fe;
+      border: 1px solid #fff;
       font-size: 1.2rem;
+      font-weight: bold;
       display: flex;
-      flex-direction: column;
+      align-items: center;
       justify-content: center;
-      transition: all 0.2s ease;
+      text-align: center;
+      color: #1e3a8a;
+      text-decoration: none;
+      transition: background-color 0.2s ease;
     }
-    .card:hover {
-      background-color: #e0e7ff;
-      transform: translateY(-4px);
+    .tile:hover {
+      background-color: #a5b4fc;
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Manual Interno Punto Ahorro</h1>
-    <p>Selecciona una categoría para acceder a la información</p>
+    <div class="search-container">
+      <input type="text" id="searchBox" class="search-box" placeholder="🔍 Buscar información rápida..." onkeyup="buscar()">
+    </div>
   </header>
-  <main>
-    <a class="card" href="telefonia.html">📱 Telefonía</a>
-    <a class="card" href="energia.html">⚡ Energía</a>
-    <a class="card" href="seguros.html">🛡️ Seguros</a>
-    <a class="card" href="alarmas.html">🚨 Alarmas</a>
-    <a class="card" href="procesos.html">🧭 Procesos</a>
-    <a class="card" href="herramientas.html">🛠️ Herramientas</a>
-  </main>
+  <div class="grid" id="grid">
+    <a class="tile" href="telefonia.html">📱 Telefonía</a>
+    <a class="tile" href="energia.html">⚡ Energía</a>
+    <a class="tile" href="seguros.html">🛡️ Seguros</a>
+    <a class="tile" href="alarmas.html">🚨 Alarmas</a>
+    <a class="tile" href="procesos.html">🧭 Procesos</a>
+    <a class="tile" href="herramientas.html">🛠️ Herramientas</a>
+  </div>
+  <script>
+    function buscar() {
+      const input = document.getElementById('searchBox').value.toLowerCase();
+      const tiles = document.querySelectorAll('.tile');
+      tiles.forEach(tile => {
+        const text = tile.textContent.toLowerCase();
+        tile.style.display = text.includes(input) ? 'flex' : 'none';
+      });
+    }
+  </script>
 </body>
 </html>
