@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manual Punto Ahorro</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    header {
+      background-color: #1e3a8a;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    main {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      padding: 2rem;
+    }
+    .card {
+      background: white;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      text-align: center;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+    }
+    .card:hover {
+      background-color: #e0e7ff;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Manual Interno Punto Ahorro</h1>
+    <p>Selecciona una categoría para acceder a la información</p>
+  </header>
+  <main>
+    <a class="card" href="telefonia.html">📱 Telefonía</a>
+    <a class="card" href="energia.html">⚡ Energía</a>
+    <a class="card" href="seguros.html">🛡️ Seguros</a>
+    <a class="card" href="alarmas.html">🚨 Alarmas</a>
+    <a class="card" href="procesos.html">🧭 Procesos</a>
+    <a class="card" href="herramientas.html">🛠️ Herramientas</a>
+  </main>
+</body>
+</html>
